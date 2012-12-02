@@ -1,0 +1,296 @@
+-- phpMyAdmin SQL Dump
+-- version 2.6.1
+-- http://www.phpmyadmin.net
+-- 
+-- Serveur: localhost
+-- Généré le : Dimanche 02 Décembre 2012 à 12:46
+-- Version du serveur: 4.1.9
+-- Version de PHP: 4.3.10
+-- 
+-- Base de données: `fagaru`
+-- 
+CREATE DATABASE `fagaru` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE fagaru;
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `accueil`
+-- 
+
+CREATE TABLE `accueil` (
+  `id` int(11) NOT NULL auto_increment,
+  `contenu` blob NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Contenu de la table `accueil`
+-- 
+
+INSERT INTO `accueil` VALUES (1, 0x3c7461626c65207374796c653d2277696474683a20313030253b2220626f726465723d2230222063656c6c73706163696e673d2230222063656c6c70616464696e673d2232223e0d0a3c74626f64793e0d0a3c74723e0d0a3c74643e0d0a3c7020616c69676e3d226a757374696679223e3c7370616e20636c6173733d22686f74656c7364657363223e3c7374726f6e673e3c7370616e20636c6173733d22686f74656c7364657363223e3c7374726f6e673e3c7370616e207374796c653d22636f6c6f723a20233030303066663b223e3c7370616e207374796c653d22666f6e742d73697a653a206c617267653b223e3c7370616e207374796c653d22636f6c6f723a20233030303030303b223e594557554c454e452047554952204641474f3c2f7370616e3e203c2f7370616e3e3a3c2f7370616e3e3c2f7374726f6e673e3c2f7370616e3e3c2f7374726f6e673e3c2f7370616e3e3c2f703e0d0a3c7020616c69676e3d226a757374696679223e3c7370616e20636c6173733d22686f74656c736465736322207374796c653d22636f6c6f723a20233030303030303b223e3c7374726f6e673e3c7370616e20636c6173733d22686f74656c7364657363223e3c7374726f6e673e3c7370616e3e266e6273703b65737420756e6520706c617465666f726d6520776562206d6f62696c652064266561637574653b7374696e266561637574653b6520266e6273703b266167726176653b20696e666f726d65722c3c2f7370616e3e3c2f7374726f6e673e3c2f7370616e3e3c2f7374726f6e673e3c2f7370616e3e3c2f703e0d0a3c2f74643e0d0a3c2f74723e0d0a3c2f74626f64793e0d0a3c2f7461626c653e);
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `causes`
+-- 
+
+CREATE TABLE `causes` (
+  `idc` int(11) NOT NULL auto_increment,
+  `libelle` varchar(50) NOT NULL default '',
+  `infection5` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`idc`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- 
+-- Contenu de la table `causes`
+-- 
+
+INSERT INTO `causes` VALUES (3, 'piqûre Anophéle', '1');
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `demandes`
+-- 
+
+CREATE TABLE `demandes` (
+  `idd` int(11) NOT NULL auto_increment,
+  `libelle` varchar(20) NOT NULL default '',
+  `resume` text NOT NULL,
+  `expediteur` varchar(100) NOT NULL default '',
+  `tel` varchar(15) NOT NULL default '',
+  `valider5` varchar(10) NOT NULL default '',
+  `jour` varchar(12) NOT NULL default '',
+  PRIMARY KEY  (`idd`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Contenu de la table `demandes`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `facteurs`
+-- 
+
+CREATE TABLE `facteurs` (
+  `idf` int(11) NOT NULL auto_increment,
+  `libelle` varchar(50) NOT NULL default '',
+  `infection5` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`idf`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Contenu de la table `facteurs`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `infection5`
+-- 
+
+CREATE TABLE `infection5` (
+  `id` int(11) NOT NULL auto_increment,
+  `Libelle1` varchar(50) NOT NULL default '',
+  `Resume` text NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `libelle` (`Libelle1`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- 
+-- Contenu de la table `infection5`
+-- 
+
+INSERT INTO `infection5` VALUES (1, 'Paludisme', '<p>le paludisdisme est une maladie virale, caus&eacute; par une moustique</p>');
+INSERT INTO `infection5` VALUES (2, '', '');
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `localite5`
+-- 
+
+CREATE TABLE `localite5` (
+  `id` int(11) NOT NULL auto_increment,
+  `libelle1` varchar(50) NOT NULL default '',
+  `region5` varchar(20) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+-- 
+-- Contenu de la table `localite5`
+-- 
+
+INSERT INTO `localite5` VALUES (1, 'pikine', 'Dakar');
+INSERT INTO `localite5` VALUES (2, 'keur massar', 'Dakar');
+INSERT INTO `localite5` VALUES (3, 'pikine', 'Saint Louis');
+INSERT INTO `localite5` VALUES (4, 'Médina', 'Dakar');
+INSERT INTO `localite5` VALUES (5, 'médina sabakh', 'Dakar');
+INSERT INTO `localite5` VALUES (6, 'Guédiawaye', 'Dakar');
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `menu_admin`
+-- 
+
+CREATE TABLE `menu_admin` (
+  `nom_rubrique` varchar(50) NOT NULL default '',
+  `lien_page` varchar(50) NOT NULL default ''
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Contenu de la table `menu_admin`
+-- 
+
+INSERT INTO `menu_admin` VALUES ('Demandes Sensibilisation', 'demandes.php');
+INSERT INTO `menu_admin` VALUES ('Localités', 'localites.php');
+INSERT INTO `menu_admin` VALUES ('Structure de Santé', 'structures.php');
+INSERT INTO `menu_admin` VALUES ('Infections', 'infections.php');
+INSERT INTO `menu_admin` VALUES ('Accueil', 'accueil.php');
+INSERT INTO `menu_admin` VALUES ('Causes Infections', 'causes.php');
+INSERT INTO `menu_admin` VALUES ('Symptômes', 'symptomes.php');
+INSERT INTO `menu_admin` VALUES ('Préventions Maladies', 'preventions.php');
+INSERT INTO `menu_admin` VALUES ('traitements Maladies', 'traitements.php');
+INSERT INTO `menu_admin` VALUES ('Facteurs Maladies', 'facteurs.php');
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `preventions`
+-- 
+
+CREATE TABLE `preventions` (
+  `idp` int(11) NOT NULL auto_increment,
+  `libelle` varchar(50) NOT NULL default '',
+  `infection5` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`idp`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Contenu de la table `preventions`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `region5`
+-- 
+
+CREATE TABLE `region5` (
+  `libelle1` varchar(50) NOT NULL default '',
+  KEY `libelle` (`libelle1`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Contenu de la table `region5`
+-- 
+
+INSERT INTO `region5` VALUES ('Dakar');
+INSERT INTO `region5` VALUES ('kaolack');
+INSERT INTO `region5` VALUES ('Kolda');
+INSERT INTO `region5` VALUES ('Louga');
+INSERT INTO `region5` VALUES ('Saint Louis');
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `structures`
+-- 
+
+CREATE TABLE `structures` (
+  `id` int(11) NOT NULL auto_increment,
+  `structure` varchar(50) NOT NULL default '',
+  `type5` varchar(50) NOT NULL default '',
+  `localite5` varchar(50) NOT NULL default '',
+  `tel` varchar(20) NOT NULL default '',
+  `adresse` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Contenu de la table `structures`
+-- 
+
+INSERT INTO `structures` VALUES (1, 'Dalale Diame', '1', '6', '338521210', 'Croisement Béthio');
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `symptomes`
+-- 
+
+CREATE TABLE `symptomes` (
+  `ids` int(11) NOT NULL auto_increment,
+  `libelle` varchar(50) NOT NULL default '',
+  `infection5` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`ids`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Contenu de la table `symptomes`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `traitements`
+-- 
+
+CREATE TABLE `traitements` (
+  `idt` int(11) NOT NULL auto_increment,
+  `libelle` varchar(50) NOT NULL default '',
+  `infection5` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`idt`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Contenu de la table `traitements`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `type5`
+-- 
+
+CREATE TABLE `type5` (
+  `id` int(11) NOT NULL auto_increment,
+  `libelle` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- 
+-- Contenu de la table `type5`
+-- 
+
+INSERT INTO `type5` VALUES (1, 'Hôpital');
+INSERT INTO `type5` VALUES (2, 'Dispensaire');
+INSERT INTO `type5` VALUES (3, 'Clinique');
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table `valider5`
+-- 
+
+CREATE TABLE `valider5` (
+  `libelle` varchar(10) NOT NULL default ''
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Contenu de la table `valider5`
+-- 
+
+INSERT INTO `valider5` VALUES ('OUI');
+INSERT INTO `valider5` VALUES ('NON');
+        
